@@ -1,10 +1,10 @@
 async function handleLogin() {
-  let email = document.querySelector(".email").value;
-  let password = document.querySelector(".password").value;
+  let Email = document.querySelector(".email").value;
+  let Password = document.querySelector(".password").value;
 
   let user = {
-    email: email,
-    password: password,
+    Email: Email,
+    Password: Password,
   };
 
   let request = {
@@ -15,14 +15,14 @@ async function handleLogin() {
     body: JSON.stringify(user),
   };
 
-  let apiRequest = fetch("http://localhost:3000/login", request);
+  let apiRequest = fetch("http://localhost:3000/api/login", request);
   let response = await apiRequest;
   if (response.status === 200) {
     const data = await response.json();
     window.localStorage.setItem("jwt", data.jwt);
 
     setTimeout(() => {
-      window.location.href = "./allListings.html";
+      window.location.href = "./Accueil.html";
     }, 1000);
   }
 }

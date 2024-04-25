@@ -3,6 +3,7 @@ const router = require("./Controller/routes/user");
 const rental = require("./Controller/routes/rental");
 const app = express();
 let cors = require("cors");
+require("dotenv").config();
 app.use(cors());
 const PORT = 3000;
 
