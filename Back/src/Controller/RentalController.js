@@ -2,12 +2,15 @@ const { pool } = require("../connexions/ConnexionSql");
 let cors = require("cors");
 
 //  Ajouter un student dans la table  une fois que le middleware est validé
-const CreateRental = async (req, res) => {
+const createrental = async (req, res) => {
   try {
-    const name = req.name;
+    const EquipmentName = req.body.EquipmentName;
+    const Description = req.body.Description;
+    const Price = req.body.Price;
+    const Quantity = req.body.Quantity;
     const [rows] = await pool.query(
-      `INSERT INTO student (student_name) VALUES (?)`,
-      [name]
+      `INSERT INTO equipment (EquipmentName,Description,Price,Quantity) VALUES (?,?,?,?)`,
+      [EquipmentName, Description, Price, Quantity]
     );
 
     console.log(rows);
@@ -112,7 +115,7 @@ const ctrlstudentOngoing = async (req, res) => {
 };
 
 module.exports = {
-  CreateRental,
+  createrental,
   ctrlTrainingStudents,
   ctrlTrainingCount,
   ctrltrainingDelete,

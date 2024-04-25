@@ -1,8 +1,8 @@
 const express = require("express");
 const rental = express.Router();
 
-const { CreateRental } = require("../RentalController");
+const { createrental } = require("../RentalController");
 
-rental.get("/CreateRental", CreateRental);
+rental.post("/createrental", createrental);
 
 module.exports = rental;
