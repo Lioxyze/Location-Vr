@@ -22,9 +22,14 @@ async function handleLogin() {
     window.localStorage.setItem("jwt", data.jwt);
 
     setTimeout(() => {
-      window.location.href = "./Accueil.html";
+      window.location.href = "./equipment.html";
     }, 1000);
   }
+}
+
+function logout() {
+  localStorage.removeItem("jwt");
+  location.reload();
 }
 
 async function handleRegister() {

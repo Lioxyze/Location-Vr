@@ -1,10 +1,17 @@
 const express = require("express");
-const router = express.Router();
+const user = express.Router();
 
-const { Register, Login } = require("../UserController");
+const {
+  Register,
+  Login,
+  testEmail,
+  valideAccount,
+} = require("../UserController");
 const { verifDataRegister } = require("../../middlewares/middlewares");
 
-router.post("/register", verifDataRegister, Register);
-router.post("/login", Login);
+user.post("/register", verifDataRegister, Register);
+user.post("/login", Login);
+user.get("/email", testEmail);
+user.patch("/valide/user/:token", valideAccount);
 
-module.exports = router;
+module.exports = user;
