@@ -54,19 +54,23 @@ const allRental = async (req, res) => {
 
 const deleteRental = async (req, res) => {
   try {
-    const id = req.params.id;
-    console.log("ID de l'équipement à supprimer :", id);
+    const RentalID = req.params.RentalID;
+    console.log("ID de l'équipement à supprimer :", RentalID);
 
     const [result] = await pool.execute(
       "DELETE FROM rental WHERE RentalID = ?",
-      [id]
+      [RentalID]
     );
-    res.json({ message: "Delete good" });
+
+    if (result.affectedRows > 0) {
+      res.json({ message: "La location a été supprimée avec succès." });
+    } else {
+      res.status(404).json({ message: "La location spécifiée n'existe pas." });
+    }
 
     console.log("Résultat de la suppression :", result);
   } catch (error) {
-    console.log(error.stack);
-    res.status(500).json({ message: "Erreur serveur" });
+    res.status(500).json({});
   }
 };
 
@@ -114,4 +118,9 @@ const updateRental = async (req, res) => {
   }
 };
 
-module.exports = { creatRental, allRental, deleteRental, updateRental };
+module.exports = {
+  creatRental,
+  allRental,
+  deleteRental,
+  updateRental,
+};

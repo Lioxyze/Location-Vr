@@ -10,7 +10,7 @@ const {
 
 rental.post("/creatRental", creatRental);
 rental.get("/allRental", allRental);
-rental.delete("/deleteRental/:id", deleteRental);
+rental.delete("/deleteRental/:RentalID", deleteRental);
 rental.patch("/updateRental/:id", updateRental);
 
 module.exports = rental;

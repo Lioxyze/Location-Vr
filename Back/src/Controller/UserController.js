@@ -42,26 +42,26 @@ async function Register(req, res) {
   }
 }
 
-const valideAccount = async (req, res) => {
-  try {
-    const token = req.params.token;
-    const sql = `SELECT * FROM user WHERE token = ?`;
-    const values = [token];
-    const [result] = await pool.execute(sql, values);
-    if (!result) {
-      res.status(204).json({ error: "g pa trouvé" });
-      return;
-    }
-    await pool.execute(
-      `UPDATE user SET isActive = 1, token = NULL WHERE token = ?`,
-      [token]
-    );
-    res.status(200).json({ result: "c validé" });
-  } catch (error) {
-    res.status(500).json({ error: error.stack });
-    console.log(error.stack);
-  }
-};
+// const valideAccount = async (req, res) => {
+//   try {
+//     const token = req.params.token;
+//     const sql = `SELECT * FROM user WHERE token = ?`;
+//     const values = [token];
+//     const [result] = await pool.execute(sql, values);
+//     if (!result) {
+//       res.status(204).json({ error: "g pa trouvé" });
+//       return;
+//     }
+//     await pool.execute(
+//       `UPDATE user SET isActive = 1, token = NULL WHERE token = ?`,
+//       [token]
+//     );
+//     res.status(200).json({ result: "c validé" });
+//   } catch (error) {
+//     res.status(500).json({ error: error.stack });
+//     console.log(error.stack);
+//   }
+// };
 
 // SELECT = login
 
@@ -75,7 +75,7 @@ const Login = async (req, res) => {
 
   try {
     const values = [Email, Password];
-    const sql = `SELECT * FROM user WHERE Email =  ? AND isActive = 1`;
+    const sql = `SELECT * FROM user WHERE Email =  ?`;
     const [result] = await pool.query(sql, values);
 
     if (result.length === 0) {
@@ -131,5 +131,5 @@ module.exports = {
   Login,
   Register,
   testEmail,
-  valideAccount,
+  // valideAccount,
 };

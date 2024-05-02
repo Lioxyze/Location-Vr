@@ -26,7 +26,7 @@ async function getAllListings() {
         <p class="card-text">EndDate : ${listing.RentalEndDate}</p>
         <p class="card-text">Price : ${listing.TotalRentalAmount} $</p>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Rental</button>
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button> 
+<button type="button" class="btn btn-danger" onclick="deleteRental()"  id="deleteRentalButton" >Delete</button> 
       </div>
     </div>
   </div>

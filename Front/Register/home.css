@@ -45,3 +45,7 @@ body {
   position: sticky;
   height: 10vh;
 }
+
+h1 {
+  color: black;
+}

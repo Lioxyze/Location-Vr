@@ -12,6 +12,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/styles/components/accueil.css" />
+    <link rel="stylesheet" href="alllisting.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
-              <a class="nav-link" href="./home.html" role="button"> Accueil </a>
+              <a class="nav-link" href="./home.html" role="button"> Home </a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="./rental.html"> Rental </a>
@@ -48,6 +50,7 @@
                 >Contact</a
               >
             </li>
+            <img src="../image/location.png" height="50" class="logo" />
           </ul>
           <div class="d-flex p-2 rid gap-3">
             <button type="button">
@@ -64,13 +67,17 @@
                 />
               </svg>
             </button>
-            <button type="button" class="btn btn-primary">
-              <a href="./login.html">Login</a>
-            </button>
+            <a href="./login.html">
+              <button onclick="logout()" type="button" class="btn btn-primary">
+                Login
+              </button></a
+            >
           </div>
-          <button type="button" class="btn btn-primary">
-            <a href="./register.html">Sign Up</a>
-          </button>
+          <a href="./register.html">
+            <button onclick="logout()" type="button" class="btn btn-primary">
+              Sign up
+            </button></a
+          >
         </div>
       </div>
     </nav>
