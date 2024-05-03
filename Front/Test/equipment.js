@@ -15,18 +15,23 @@ async function getAllListings() {
       card.style.margin = "5px";
 
       card.innerHTML = `
-<div class="container d-flex flex-wrap">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <img src="${listing.Image}" class="card-img-top" alt="Equipment Image"> <!-- Image en haut de la carte -->
         <div class="card-body">
           <h5 class="card-title">${listing.EquipmentName}</h5>
-          <img src="${listing.Image}" class="img-fluid"> <!-- Ajout de la classe img-fluid -->
           <p class="card-text">${listing.Description}</p>
-          <p class="card-text">Prix : ${listing.Price} $</p>
-          <p class="card-text">Quantity : ${listing.Quantity}</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Equipment</button>
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="deleteListing(RentalID)">Delete</button> 
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price: ${listing.Price} $</li>
+            <li class="list-group-item">Quantity: ${listing.Quantity}</li>
+          </ul>
+          <div class="card-footer text-center"> <!-- Pied de carte avec les boutons -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Equipment</button>
+            <button type="button" class="btn btn-danger deleteButton" onclick="deleteEquipment(${listing.EquipmentID})">Delete</button>
+            <button type="button" id="rentButton" class="btn btn-success">Rental Available</button>
+          </div>
         </div>
       </div>
     </div>
@@ -49,3 +54,23 @@ function logout() {
 }
 
 getAllListings();
+async function deleteEquipment(EquipmentID) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/equipementDelete/${EquipmentID}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+    }
+  } catch (error) {
+    console.error("Erreur lors de la suppression :", error);
+  }
+}

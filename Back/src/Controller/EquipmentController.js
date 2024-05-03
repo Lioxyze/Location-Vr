@@ -40,8 +40,7 @@ const deleteEquipment = async (req, res) => {
       "DELETE FROM equipment WHERE EquipmentID = ?",
       [id]
     );
-    res.json({ message: "Delete good" });
-
+    res.json({ message: "L'équipement a été supprimée avec succès." });
     console.log("Résultat de la suppression :", result);
   } catch (error) {
     console.log(error.stack);
