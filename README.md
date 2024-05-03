@@ -8,6 +8,10 @@ Location VR est une plateforme conçue pour faciliter la location d'équipements
 - **Louer**: Louez facilement des articles VR pour une utilisation à court ou à long terme, adaptée à vos besoins spécifiques.
 - **Profils utilisateurs**: Créez des profils personnalisés pour gérer les locations, suivre l'historique des commandes et sauvegarder les articles préférés.
 
+
+
+https://trello.com/b/YbYQcSQN/tableau-brief-5
+
 ## Comment démarrer
 1. **Cloner le dépôt**:
    ```bash
