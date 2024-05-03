@@ -13,4 +13,4 @@ Location VR est une plateforme conçue pour faciliter la location d'équipements
 ## Comment démarrer
 1. **Cloner le dépôt**:
    ```bash
-   git clone https://github.com/ton-nom-utilisateur/location-vr.git
+   git clone https://github.com/Lioxyze/Brief-5E
