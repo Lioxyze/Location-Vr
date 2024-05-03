@@ -30,7 +30,7 @@ async function getAllListings() {
           <div class="card-footer text-center"> <!-- Pied de carte avec les boutons -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Equipment</button>
             <button type="button" class="btn btn-danger deleteButton" onclick="deleteEquipment(${listing.EquipmentID})">Delete</button>
-            <button type="button" id="rentButton" class="btn btn-success">Rental Available</button>
+            <button type="button" id="rentButton" class="btn btn-success">Buy</button>
           </div>
         </div>
       </div>
